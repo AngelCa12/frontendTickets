@@ -1,29 +1,55 @@
 .usuarios-table-wrapper {
-  max-height: 400px; 
-  overflow-y: auto; 
+
   border: 1px solid #ddd;
   border-radius: 6px;
+  width: 90%;
+  padding: 20px;
+  margin-left: 40px;
+  
 }
 
 .usuarios-table {
-  width: 100%;
+  max-width: 400%;
   border-collapse: collapse;
+  table-layout: fixed;
+  
+  
 }
 
 .usuarios-table th,
 .usuarios-table td {
-  padding: 12px;
+  padding: 8px 12px;
   text-align: left;
   border-bottom: 1px solid #ccc;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 257px;
 }
 
 .usuarios-table th {
-  background-color: #1e90ff;
+  background: #2b6cb0;
   color: white;
   position: sticky;
   top: 0;
+  text-align: center;
+  
+}
+/*
+@media screen and (max-width: 768px) {
+  .usuarios-form input,
+  .usuarios-form select,
+  .btn-guardar {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .usuarios-table th,
+  .usuarios-table td {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }
 
+*/
 .usuarios-table tr:hover {
   background-color: #f1f5f9;
 }
@@ -42,15 +68,16 @@
 }
 
 .usuarios-table button:first-child:hover {
-  background-color: #02e947; 
+  background-color: #02e947;
 }
+
 .usuarios-table button:last-child {
   background-color: #ff0019;
   color: #fff;
 }
 
 .usuarios-table button:last-child:hover {
-  background-color: #f87474; 
+  background-color: #f87474;
 }
 
 .usuarios-table button:hover {
@@ -58,16 +85,18 @@
 }
 
 .usuarios-container {
-  padding: 0px;
-  background-color: #f9f9f9; 
+  padding: 50px;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  color : #000000; 
+  color: #000000;
+  text-align: center;
 }
 
 .usuarios-form label {
-  margin-left: 20px; 
-  color:#000000;
+  margin-left: 20px;
+  color: #000000;
   font-size: 16px;
+  text-align: center;
 }
 
 .usuarios-form input,
@@ -76,7 +105,7 @@
   border: 1px solid #000000;
   border-radius: 5px;
   font-size: 14px;
-  color : #000000; 
+  color: #000000;
   background-color: #fffffffa;
   margin-left: 10px;
 }
@@ -86,30 +115,79 @@
   background-color: #079bfd;
 }
 
-
 .usuarios-form input:focus,
 .usuarios-form select:focus {
   outline: none;
-  border-color: #006fdd; 
-  box-shadow: 0 0 5px rgba(30,144,255,0.5);
+  border-color: #006fdd;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
   background-color: #ffffff;
 }
 
-/* Botón de guardar */
 .btn-guardar {
-  margin-top: 15px;     
+  margin-top: 15px;
   margin-left: 20px;
-  background-color: #0653b8; 
-  color: #fff;        
+  background: linear-gradient(135deg, #0596da, #0434cf);
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.usuarios-container p {
+    
+    color: rgb(255, 0, 0);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 15px;
+  margin-right: 90px;
+}
+
+.paginacion button {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #ffffff;
+  padding: 10px;
+  background-color: #00a2ff;
   
 }
 
-.btn-guardar:hover {
-  background-color: #00c3ff; 
+.paginacion span {
+  font-weight: bold;
 }
 
+body {
+  background-color: #ffffff;  
+}
+
+
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
+
+.usuarios-container h3 {
+  text-align: left;
+}

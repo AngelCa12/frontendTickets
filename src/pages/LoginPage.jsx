@@ -13,6 +13,7 @@ function LoginPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+
   // Splash image
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000);
@@ -24,14 +25,16 @@ function LoginPage() {
     setError("");
 
     try {
-      const res = await usuarioApi.login({ email, password });
-      const user = res.data;
+     const res = await usuarioApi.login({ email, password });
+    const user = res.data;                  
+    console.log("Usuario recibido:", user);   
+    console.log("Redirigiendo a:", user.rol_nombre);
 
       localStorage.setItem("usuario", JSON.stringify(user));
 
-      if (user.rol === "Admin") {
+      if (user.rol_nombre === "Admin") {
         navigate("/admin/dashboard");
-      } else if (user.rol === "Soporte") {
+      } else if (user.rol_nombre === "Soporte") {
         navigate("/soporte/dashboard");
       } else {
         navigate("/usuario/nuevo-ticket");

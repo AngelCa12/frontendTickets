@@ -1,0 +1,110 @@
+/* ======== CONTENEDOR GENERAL ======== */
+.tickets-container {
+  padding: 20px;
+  margin-left: 130px;
+  padding: 120px;
+
+}
+
+/* ======== TÍTULOS ======== */
+.tickets-container h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.tickets-container p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* ======== TABLA ======== */
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-table th {
+  background: #2b6cb0;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  text-align: center;
+}
+
+.ticket-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.ticket-table tr:hover td {
+  background: #f0f8ff;
+}
+
+/* Fila vacía */
+.ticket-table td[colspan] {
+  text-align: center;
+  color: #777;
+}
+
+/* ======== PAGINACIÓN ======== */
+.tickets-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 12px;
+  margin-right: 90px;
+  margin-left: 90px;
+}
+
+.tickets-pagination button {
+  padding: 8px 15px;
+  background: #2b6cb0;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tickets-pagination button:hover {
+  background: #1e4f7a;
+}
+
+.tickets-pagination button:disabled {
+  background: #00b7ff;
+  cursor: not-allowed;
+}
+
+.tickets-pagination span {
+  font-weight: bold;
+  color: #333;
+}
+
+body {
+  background-color: #ffffff;  
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}

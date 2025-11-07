@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "../styles/Dashboard.css";
-import { Home, Users, Ticket, Layers, LogOut } from "lucide-react";
+import { Home, Users, Ticket, Layers, LogOut, Key, Shield, Hospital } from "lucide-react";
 import logo from "../assets/logo.png";
 
-//import DashboardHome from "../components/DashboardHome";
+import AdminCategorias from "../components/AdminCategorias";
 import AdminUsuarios from "../components/AdminUsuarios";
-//import AdminCategorias from "../components/AdminCategorias";
+import AdminRoles from "../components/AdminRoles";
 import AdminTickets from "../components/AdminTickets";
 
 function AdminDashboard() {
@@ -14,7 +14,7 @@ function AdminDashboard() {
 
   return (
     <div className="dashboard">
-      {/* Sidebar */}
+     
       <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
         <div className="sidebar-header">
           <img src={logo} alt="Logo" className="logo" />
@@ -34,28 +34,36 @@ function AdminDashboard() {
           </Link>
           <Link to="/admin/categorias" className="sidebar-item">
             <Layers size={20} />
-            {!collapsed && <span>Categorías</span>}
+            {!collapsed && <span>Categorías Usuarios</span>}
           </Link>
           <Link to="/admin/tickets" className="sidebar-item">
             <Ticket size={20} />
             {!collapsed && <span>Tickets</span>}
+          </Link>
+          <Link to="/admin/roles" className="sidebar-item">
+            <Shield size={20} />
+            {!collapsed && <span>Roles</span>}
+          </Link>
+          <Link to="/admin/categorias" className="sidebar-item">
+            <Hospital size={20} />
+            {!collapsed && <span>Areas Clinica</span>}
           </Link>
         </nav>
 
         <div className="sidebar-footer">
           <Link to="/login" className="sidebar-item" onClick={() => localStorage.clear()}>
             <LogOut size={20} />
-            {!collapsed && <span>Salir</span>}
+            {!collapsed && <span>Cerrar Sesión</span>}
           </Link>
         </div>
       </aside>
 
-      {/* Contenido dinámico */}
+      
       <main className="content">
         <Routes>
-          {/*<Route path="dashboard" element={<DashboardHome />} />*/}
+          <Route path="categorias" element={<AdminCategorias />} />
           <Route path="usuarios" element={<AdminUsuarios />} />
-         {/*} <Route path="categorias" element={<AdminCategorias />} />*/}
+          <Route path="roles" element={<AdminRoles />} />
           <Route path="tickets" element={<AdminTickets />} />
         </Routes>
       </main>

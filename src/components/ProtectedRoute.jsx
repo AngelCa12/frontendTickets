@@ -7,8 +7,8 @@ const ProtectedRoute = ({ children, rol }) => {
     return <Navigate to="/login" replace />;
   }
 
-  if (usuario.rol !== rol) {
-    switch (usuario.rol) {
+  if (usuario.rol_nombre !== rol) {
+    switch (usuario.rol_nombre) {
       case "admin":
         return <Navigate to="/admin/dashboard" replace />;
       case "soporte":
