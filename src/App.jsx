@@ -4,6 +4,7 @@ import UsuarioDashboard from "./pages/UsuarioDashboard";
 import SoporteDashboard from "./pages/SoporteDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DashboardSoporte from "./pages/DashboardSoporte";
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
           }
         />
         <Route
-          path="/soporte/dashboard"
+          path="/soporte/*"
           element={
             <ProtectedRoute rol="Soporte">
-              <SoporteDashboard />
+              <SoporteDashboard/>
             </ProtectedRoute>
           }
         />
+
         <Route
           path="/usuario/nuevo-ticket"
           element={

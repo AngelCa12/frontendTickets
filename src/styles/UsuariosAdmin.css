@@ -191,3 +191,17 @@ body {
 .usuarios-container h3 {
   text-align: left;
 }
+
+.usu-buscador {
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 15px;
+    font-size: 15px;
+    margin-left: 900px;
+    width: 250px;
+
+}
+
+.usu-buscador::placeholder {
+    color: #000000;
+}

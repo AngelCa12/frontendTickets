@@ -75,6 +75,7 @@
     padding: 12px 15px;
     text-align: left;
     width: 300px;
+    border-bottom: 1px solid #ccc;
 }
 
 .roles-table th {
@@ -83,13 +84,6 @@
     font-weight: 600;
     text-align: center;
 }
-
-
-.roles-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-
 .roles-table tbody tr:hover {
     background-color: #e0e7ff;
 }
@@ -103,6 +97,7 @@
     cursor: pointer;
     margin-right: 5px;
     transition: 0.3s;
+    margin-left: 50px;
 }
 
 .roles-table button:first-child {
@@ -136,4 +131,16 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff; 
+}
+
+.rol-buscador {
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 25px;
+    font-size: 15px;
+
+}
+
+.rol-buscador::placeholder {
+    color: #000000;
 }

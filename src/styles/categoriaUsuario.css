@@ -1,0 +1,91 @@
+.cu-container {
+  padding: 20px;
+  background: #fafafa;
+  margin-left: 400px;
+}
+
+.cu-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.cu-tabla th {
+  background: #2b6cb0;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.cu-tabla td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cu-tabla tbody tr:hover {
+    background-color: #e0e7ff;
+}
+
+select {
+  padding: 6px;
+  font-size: 14px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+}
+
+.btn-save {
+  background: #df242e;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ======== PAGINACIÓN ======== */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 12px;
+  margin-right: 90px;
+  margin-left: 90px;
+}
+
+.paginacion button {
+  padding: 8px 15px;
+  background: #2b6cb0;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.paginacion button:hover {
+  background: #1e4f7a;
+}
+
+.paginacion button:disabled {
+  background: #00b7ff;
+  cursor: not-allowed;
+}
+
+.paginacion span {
+  font-weight: bold;
+  color: #333;
+}
+
+.cu-buscador {
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.cu-buscador::placeholder {
+    color: #000000;
+}

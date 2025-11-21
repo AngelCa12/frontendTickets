@@ -10,6 +10,9 @@ const usuarioApi = {
     Email: data.email,      
     Password: data.password 
   }),
+  
+  cambiarEstado: (id, data) => 
+    axiosClient.put(`/Usuario/${id}/estado`, data),
 };
 
 

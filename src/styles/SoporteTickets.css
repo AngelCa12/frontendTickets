@@ -1,9 +1,8 @@
 /* ======== CONTENEDOR GENERAL ======== */
-/*.tickets-container {
-  margin-left: 0px;
-  padding: 80px;
+.tickets-container {
+  text-align: justify;
 }
-*/
+
 .tickets-container h1 {
   font-size: 24px;
   margin-bottom: 5px;
@@ -134,17 +133,18 @@ body {
   background-color: #02e947;
 }
 
-.btn-eliminar {
+.btn-detalles {
   padding: 5px 10px;
-  background-color: #ff0019;
+  background-color: #03ade0;
   border: none;
   border-radius: 4px;
   color: white;
   cursor: pointer;
+  margin-left: 50px;
 }
 
-.btn-eliminar:hover {
-  background-color: #f87474;
+.btn-detalles:hover {
+  background-color: #0741e2;
 }
 
 .ticket-form form {
@@ -189,30 +189,18 @@ body {
   font-weight: bold;
 }
 
-.btn-cerrar{
 
-  margin-left: 180px;
-  color: #ffffff;
-  background-color: #ff0000;
-  width: 180px;
-}
-
-
-.btn-guardar {
+.btn-guardar-estado {
   margin-top: 15px;
-  margin-left: 180px;
-  background: linear-gradient(135deg, #0596da, #0434cf);
+    background-color: #06a10e;
   color: #fff;
-  width: 180px;
+
 }
 
-.btn-crear{
+.btn-guardar-estado:hover{
 
-  background-color: #0a8fe7;
-  color: #ffffff;
-  margin-bottom: 20px;
+  background-color: #2df105;
 }
-
 
 .table-container {
   width: 100%;
@@ -232,3 +220,4 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+

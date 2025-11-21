@@ -59,6 +59,7 @@
     box-shadow: 0 2px 8px rgba(218, 218, 218, 0.5);
     border-radius: 8px;
     overflow: hidden;
+     
 }
 
 .categorias-table th,
@@ -66,6 +67,7 @@
   padding: 12px 15px;
     text-align: left;
     width: 200px;
+    border-bottom: 1px solid #ccc;
     
 }
 
@@ -76,6 +78,11 @@
     font-weight: 600;
     text-align: center;
 }
+
+.categorias-table tbody tr:hover {
+    background-color: #e0e7ff;
+}
+
 
 .btn-edit {
   background-color: #28a745;
@@ -120,4 +127,16 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff; 
+}
+
+.cat-buscador {
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 15px;
+    font-size: 15px;
+    
+}
+
+.cat-buscador::placeholder {
+    color: #000000;
 }

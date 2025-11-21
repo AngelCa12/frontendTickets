@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import "../styles/RolesAdmin.css";
-import {
-  getRoles,
-  createRol,
-  updateRol,
-  deleteRol
-} from "../api/rolesApi";
+import { getRoles, createRol, updateRol, deleteRol } from "../api/rolesApi";
 
 const AdminRoles = () => {
   const [roles, setRoles] = useState([]);
   const [formData, setFormData] = useState({ nombre: "" });
   const [editarId, setEditarId] = useState(null);
+  const [busqueda, setBusqueda] = useState(""); 
+
+  // PAGINACIÓN
+  const [pagina, setPagina] = useState(1);
+  const registrosPorPagina = 5;
 
   useEffect(() => {
     cargarRoles();
@@ -36,7 +36,6 @@ const AdminRoles = () => {
         await createRol(formData);
         alert("✅ Rol creado correctamente");
       }
-
       setFormData({ nombre: "" });
       setEditarId(null);
       cargarRoles();
@@ -64,14 +63,37 @@ const AdminRoles = () => {
     }
   };
 
+  // FILTRAR ROLES POR NOMBRE
+  const rolesFiltrados = roles.filter((r) =>
+    r.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  // PAGINACIÓN SOBRE RESULTADOS FILTRADOS
+  const indexInicio = (pagina - 1) * registrosPorPagina;
+  const indexFin = indexInicio + registrosPorPagina;
+  const rolesPaginados = rolesFiltrados.slice(indexInicio, indexFin);
+  const totalPaginas = Math.ceil(rolesFiltrados.length / registrosPorPagina);
+
   return (
     <div className="table-rol">
       <h2>Administrar Roles</h2>
 
+      {/* BUSCADOR */}
+      <input
+        type="text"
+        placeholder="Buscar rol..."
+        className="rol-buscador"
+        value={busqueda}
+        onChange={(e) => {
+          setBusqueda(e.target.value);
+          setPagina(1); 
+        }}
+      />
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Nombre del Rol"
+          placeholder="Agregar Rol"
           value={formData.nombre}
           onChange={(e) => setFormData({ nombre: e.target.value })}
           required
@@ -85,25 +107,25 @@ const AdminRoles = () => {
         <table className="roles-table">
           <thead>
             <tr>
-              <th>ID</th>
+             {/*} <th>ID</th>*/}
               <th>Nombre</th>
               <th>Acciones</th>
             </tr>
           </thead>
 
           <tbody>
-            {roles.map((rol) => (
-              <tr key={rol.id}>
-                <td>{rol.id}</td>
-                <td>{rol.nombre}</td>
-                <td>
-                  <button onClick={() => handleEditar(rol)}>Editar</button>
-                  <button onClick={() => handleEliminar(rol.id)}>Eliminar</button>
-                </td>
-              </tr>
-            ))}
-
-            {roles.length === 0 && (
+            {rolesPaginados.length > 0 ? (
+              rolesPaginados.map((rol) => (
+                <tr key={rol.id}>
+                  {/*<td>{rol.id}</td>*/}
+                  <td>{rol.nombre}</td>
+                  <td>
+                    <button onClick={() => handleEditar(rol)}>Editar</button>
+                    <button onClick={() => handleEliminar(rol.id)}>Eliminar</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
               <tr>
                 <td colSpan="3" className="no-data">
                   No hay roles registrados
@@ -112,6 +134,25 @@ const AdminRoles = () => {
             )}
           </tbody>
         </table>
+      </div>
+
+      {/* PAGINACIÓN */}
+      <div className="paginacion">
+        <button
+          disabled={pagina === 1}
+          onClick={() => setPagina(pagina - 1)}
+        >
+          « Anterior
+        </button>
+
+        <span>Página {pagina} de {totalPaginas}</span>
+
+        <button
+          disabled={pagina === totalPaginas || totalPaginas === 0}
+          onClick={() => setPagina(pagina + 1)}
+        >
+          Siguiente »
+        </button>
       </div>
     </div>
   );

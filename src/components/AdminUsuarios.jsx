@@ -12,8 +12,9 @@ function AdminUsuarios() {
 
   const [usuarios, setUsuarios] = useState([]);
   const [editarId, setEditarId] = useState(null);
+  const [busqueda, setBusqueda] = useState(""); 
 
-  // Estados de paginación
+  // PAGINACIÓN
   const [paginaActual, setPaginaActual] = useState(1);
   const registrosPorPagina = 10;
 
@@ -86,7 +87,6 @@ function AdminUsuarios() {
       Password: "",
       Rol: usuario.idRol.toString(),
     });
-
     setEditarId(usuario.id);
   };
 
@@ -103,12 +103,18 @@ function AdminUsuarios() {
     }
   };
 
-  // LÓGICA DE PAGINACIÓN
+  // FILTRAR USUARIOS POR NOMBRE O EMAIL
+  const usuariosFiltrados = usuarios.filter(
+    (u) =>
+      u.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+      u.email.toLowerCase().includes(busqueda.toLowerCase())
+  );
+
+  // PAGINACIÓN SOBRE RESULTADOS FILTRADOS
   const indexUltimo = paginaActual * registrosPorPagina;
   const indexPrimero = indexUltimo - registrosPorPagina;
-  const usuariosPaginados = usuarios.slice(indexPrimero, indexUltimo);
-
-  const totalPaginas = Math.ceil(usuarios.length / registrosPorPagina);
+  const usuariosPaginados = usuariosFiltrados.slice(indexPrimero, indexUltimo);
+  const totalPaginas = Math.ceil(usuariosFiltrados.length / registrosPorPagina);
 
   return (
     <div className="usuarios-container">
@@ -159,6 +165,18 @@ function AdminUsuarios() {
 
       <h3>Usuarios existentes</h3>
 
+      {/* BUSCADOR */}
+      <input
+        type="text"
+        placeholder="Buscar usuario por Nombre o Email"
+        className="usu-buscador"
+        value={busqueda}
+        onChange={(e) => {
+          setBusqueda(e.target.value);
+          setPaginaActual(1); 
+        }}
+      />
+
       <div className="usuarios-table-wrapper">
         <table className="usuarios-table">
           <thead>
@@ -172,22 +190,20 @@ function AdminUsuarios() {
           </thead>
 
           <tbody>
-            {usuariosPaginados.map((usuario) => (
-              <tr key={usuario.id}>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.email}</td>
-                <td>{usuario.rol_nombre}</td>
-                <td>{usuario.password}</td>
-                <td>
-                  <button onClick={() => handleEditar(usuario)}>Editar</button>
-                  <button onClick={() => handleEliminar(usuario.id)}>
-                    Eliminar
-                  </button>
-                </td>
-              </tr>
-            ))}
-
-            {usuarios.length === 0 && (
+            {usuariosPaginados.length > 0 ? (
+              usuariosPaginados.map((usuario) => (
+                <tr key={usuario.id}>
+                  <td>{usuario.nombre}</td>
+                  <td>{usuario.email}</td>
+                  <td>{usuario.rol_nombre}</td>
+                  <td>{usuario.password}</td>
+                  <td>
+                    <button onClick={() => handleEditar(usuario)}>Editar</button>
+                    <button onClick={() => handleEliminar(usuario.id)}>Eliminar</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
               <tr>
                 <td colSpan="5" className="no-data">
                   No hay usuarios registrados
@@ -198,11 +214,11 @@ function AdminUsuarios() {
         </table>
       </div>
 
-      {/* BOTONES DE PAGINACIÓN */}
+      {/* PAGINACIÓN */}
       <div className="paginacion">
         <button
           disabled={paginaActual === 1}
-          onClick={() => setPaginaActual(paginaActual - 1)}
+          onClick={() => setPaginaActual((p) => Math.max(p - 1, 1))}
         >
           ◀ Anterior
         </button>
@@ -212,8 +228,8 @@ function AdminUsuarios() {
         </span>
 
         <button
-          disabled={paginaActual === totalPaginas}
-          onClick={() => setPaginaActual(paginaActual + 1)}
+          disabled={paginaActual === totalPaginas || totalPaginas === 0}
+          onClick={() => setPaginaActual((p) => Math.min(p + 1, totalPaginas))}
         >
           Siguiente ▶
         </button>

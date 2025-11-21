@@ -21,11 +21,18 @@ const ticketService = {
   update: (id, data) => ticketApi.put(`/${id}`, data),
 
   // 🔹 Cambiar estado de ticket
-  cambiarEstado: (id, nuevoEstado) =>
-    ticketApi.put(`/estado/${id}`, { estado: nuevoEstado }),
+ // cambiarEstado: (id, nuevoEstado) =>
+   // ticketApi.put(`/estado/${id}`, { estado: nuevoEstado }),
+ cambiarEstado: (id, nuevoEstado) =>
+  ticketApi.put(`/estado/${id}`, JSON.stringify(nuevoEstado), {
+    headers: { "Content-Type": "application/json" }
+  }),
+
 
   // 🔹 Eliminar ticket
   remove: (id) => ticketApi.delete(`/${id}`),
+
+  getByUser: (idUsuario) => ticketApi.get(`/usuario/${idUsuario}`),
 };
 
 export default ticketService;
