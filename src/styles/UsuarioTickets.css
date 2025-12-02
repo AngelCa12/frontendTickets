@@ -1,0 +1,215 @@
+/* ======== CONTENEDOR GENERAL ======== */
+.tickets-form {
+  text-align: justify;
+}
+
+.tickets-form h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.tickets-form p {
+  margin-bottom: 20px;
+  color: #555;
+}
+/*
+/* ======== TABLA ======== 
+.ticket-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+*/
+.tabla-tickets th {
+  background: #2b6cb0;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tabla-tickets td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-tickets tr:hover td {
+  background: #f0f8ff;
+}
+
+/* Fila vacía */
+.tabla-tickets td[colspan] {
+  text-align: center;
+  color: #777;
+}
+
+/* ======== PAGINACIÓN ======== */
+.paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 12px;
+  margin-right: 90px;
+  margin-left: 90px;
+}
+
+.paginacion button {
+  padding: 8px 15px;
+  background: #2b6cb0;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tickets-pagination button:hover {
+  background: #1e4f7a;
+}
+
+.paginacion button:disabled {
+  background: #00b7ff;
+  cursor: not-allowed;
+}
+
+.paginacion span {
+  font-weight: bold;
+  color: #333;
+}
+
+body {
+  background-color: #ffffff;  
+}
+
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+  border-radius: 6px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
+
+.ticket-buscador {
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 15px;
+    font-size: 15px;
+    width: 325px;
+    margin-left: 580px;
+
+}
+
+.ticket-buscador::placeholder {
+    color: #000000;
+}
+
+.btn-editar {
+  padding: 5px 10px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.btn-detalle {
+  padding: 5px 10px;
+  background-color: #03ade0;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.btn-detalle:hover {
+  background-color: #0741e2;
+}
+
+.ticket-form form {
+  background: #ffffff;
+  color: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;  
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 12px;
+}
+
+.ticket-form{
+  display: grid;
+  gap: 12px;
+}
+
+.ticket-form input,
+.ticket-form textarea,
+.ticket-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #000000;
+}
+
+.ticket-form textarea {
+  height: 80px;
+  resize: none;
+}
+
+.ticket-form label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tabla-tickets {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabla-tickets  {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tabla-tickets th:nth-child(2),
+.tabla-tickets td:nth-child(2) {
+  width: 250px;
+  max-width: 250px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.input-buscar{
+  background-color: #ffffff;
+  margin-left: 1000px;
+  color: #000000;
+}
+
+.input-crear{
+  background-color: #ffffff;
+}

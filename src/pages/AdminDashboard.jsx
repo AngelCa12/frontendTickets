@@ -60,7 +60,8 @@ function AdminDashboard() {
 
         {/* LOGOUT */}
         <div className="sidebar-footer">
-          <Link to="/login" className="sidebar-item" onClick={() => localStorage.clear()}>
+          {/*<Link to="/login" className="sidebar-item" onClick={() => localStorage.clear()}>*/}
+          <Link to="/login" className="sidebar-item" onClick={() => localStorage.removeItem("usuario")}>
             <LogOut size={20} />
             {!collapsed && <span>Cerrar Sesión</span>}
           </Link>

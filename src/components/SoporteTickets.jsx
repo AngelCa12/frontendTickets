@@ -5,6 +5,13 @@ import "../styles/SoporteTickets.css";
 
 function SoporteTickets() {
   const usuario = JSON.parse(localStorage.getItem("usuario")) || null;
+  console.log("Usuario en soporte:", usuario);
+
+  /*// PROTECCIÓN: Solo soporte debe entrar aquí
+if (usuario?.rol_nombre !== "Soporte") {
+  return <h2>No tienes permisos para ver esta página</h2>;
+}*/
+
   const navigate = useNavigate();
 
   const [tickets, setTickets] = useState([]);
@@ -17,7 +24,7 @@ function SoporteTickets() {
 
   const cargarTickets = async () => {
     try {
-      const res = await ticketService.getByUser(usuario.id);
+      const res = await ticketService.getBySoporte(usuario.id);
       setTickets(res.data);
     } catch (error) {
       console.error("Error al cargar tickets asignados:", error);

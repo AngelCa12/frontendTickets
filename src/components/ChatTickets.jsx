@@ -22,7 +22,7 @@ const cargarMensajes = async () => {
   try {
     const res = await comentarioApi.obtenerPorTicket(idTicket);
 
-    const mensajesFormateados = res.data.map(m => ({
+    const mensajesFormateados = res.Adata.map(m => ({
       id: m.id,
       idUsuario: m.id_usuario,
       nombreUsuario: m.nombre_usuario ?? "Usuario",
@@ -110,3 +110,5 @@ const cargarMensajes = async () => {
 };
 
 export default ChatTicket;
+
+

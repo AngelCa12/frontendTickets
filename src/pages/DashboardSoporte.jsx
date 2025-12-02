@@ -49,7 +49,7 @@ useEffect(() => {
 
 const cargarTickets = async (idUsuario) => {
   try {
-    const res = await ticketApi.getByUser(idUsuario);
+    const res = await ticketApi.getBySoporte(idUsuario);
     setTickets(res.data);
   } catch (err) {
     console.error("Error al cargar tickets:", err);

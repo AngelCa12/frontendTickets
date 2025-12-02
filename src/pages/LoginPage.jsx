@@ -37,7 +37,7 @@ function LoginPage() {
       } else if (user.rol_nombre === "Soporte") {
         navigate("/soporte/dashboard");
       } else {
-        navigate("/usuario/nuevo-ticket");
+        navigate("/usuario/dashboard");
       }
     } catch (err) {
       console.error("Error al iniciar sesión:", err);

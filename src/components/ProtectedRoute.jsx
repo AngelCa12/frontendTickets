@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children, rol }) => {
       case "soporte":
         return <Navigate to="/soporte/dashboard" replace />;
       case "usuario":
-        return <Navigate to="/usuario/nuevo-ticket" replace />;
+        return <Navigate to="/usuario/tickets" replace />;
       default:
         return <Navigate to="/login" replace />;
     }

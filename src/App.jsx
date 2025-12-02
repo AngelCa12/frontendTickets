@@ -5,6 +5,7 @@ import SoporteDashboard from "./pages/SoporteDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DashboardSoporte from "./pages/DashboardSoporte";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         />
 
         <Route
-          path="/usuario/nuevo-ticket"
+          path="/usuario/*"
           element={
             <ProtectedRoute rol="Usuario">
               <UsuarioDashboard />

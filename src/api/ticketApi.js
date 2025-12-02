@@ -33,6 +33,10 @@ const ticketService = {
   remove: (id) => ticketApi.delete(`/${id}`),
 
   getByUser: (idUsuario) => ticketApi.get(`/usuario/${idUsuario}`),
+
+getBySoporte: (idSoporte) => ticketApi.get(`/soporte/${idSoporte}`),
+
+
 };
 
 export default ticketService;

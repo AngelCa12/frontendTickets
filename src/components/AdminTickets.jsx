@@ -30,6 +30,7 @@ function AdminTickets() {
     estado: "Pendiente",
     idUsuario: usuario?.id || null,
     idCategoria: "",
+
   });
 
   // Cargar tickets
@@ -41,6 +42,8 @@ function AdminTickets() {
       console.error("Error al cargar tickets:", error);
     }
   };
+  console.log("Tickets recibidos:", tickets);
+
 
   // Cargar categorías
   const cargarCategorias = async () => {
@@ -231,6 +234,7 @@ function AdminTickets() {
               <th>Estado</th>
               <th>Fecha</th>
               <th>Acciones</th>
+              <th>Soporte</th>
             </tr>
           </thead>
 
@@ -259,6 +263,7 @@ function AdminTickets() {
                       Eliminar
                     </button>
                   </td>
+                  <td>{t.soporteNombre || 'No_Asignado'}</td>
                 </tr>
               ))
             ) : (

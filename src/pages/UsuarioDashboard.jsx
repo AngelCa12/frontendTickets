@@ -3,10 +3,10 @@ import { Routes, Route, Link } from "react-router-dom";
 import "../styles/Dashboard.css";
 import { Home, Ticket, LogOut } from "lucide-react";
 import logo from "../assets/logo.png";
-import DashboardPage from "../pages/DashboardPage";
-import DashboardSoporte from "../pages/DashboardSoporte";
-import SoporteTickets from "../components/SoporteTickets";
-import SoporteTicketDetalle from "../components/SoporteTicketDetalle";
+import UsuarioTickets from "../components/UsuarioTickets";
+import DashboardUsuario from "../pages/DashboardUsuario";
+import NuevoTicket from "../components/NuevoTicket";
+import UsuarioTicketDetalle from "../components/UsuarioTicketDetalle";
 
 function UsuarioDashboard() {
   const [collapsed, setCollapsed] = useState(false);
@@ -29,7 +29,7 @@ function UsuarioDashboard() {
             {!collapsed && <span>Inicio</span>}
           </Link>
 
-          <Link to="/usuario/tickets" className="sidebar-item">
+          <Link to="/usuario/ticketsUsu" className="sidebar-item">
             <Ticket size={20} />
             {!collapsed && <span>Mis Tickets</span>}
           </Link>
@@ -51,18 +51,17 @@ function UsuarioDashboard() {
       <main className="content">
         <Routes>
 
-          {/* Pantalla inicial del soporte */}
-          <Route index element={<DashboardSoporte />} />
+          {/* Pantalla inicial del usuario */}
+          <Route index element={<DashboardUsuario/>} />
 
-          {/* Rutas internas 
-          <Route path="dashboard" element={<DashboardSoporte />} />
-          <Route path="DashboardPage" element={<DashboardPage />} />
-          <Route path="tickets" element={<SoporteTickets />}/>
-          <Route path="ticket/:id" element={<SoporteTicketDetalle />} />
+          {/* Rutas internas */}
+          <Route path="ticketsUsu" element={<UsuarioTickets />} />
+          <Route path="nuevo-ticket" element={<NuevoTicket />} />
+          <Route path="ticket/:id" element={<UsuarioTicketDetalle />} />
 
-          {/* Ruta desconocida → dashboard 
-          <Route path="*" element={<DashboardSoporte />} />
-                */}
+          {/* Ruta desconocida → dashboard */}
+          <Route path="*" element={<DashboardUsuario/>} />
+                
         </Routes>
       </main>
     </div>
@@ -70,3 +69,11 @@ function UsuarioDashboard() {
 }
 
 export default UsuarioDashboard;
+
+
+
+
+
+
+
+
